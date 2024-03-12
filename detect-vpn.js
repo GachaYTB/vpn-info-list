@@ -14,7 +14,7 @@ export function detectVpnByIsp() {
             let ispsurl = "https://gachaytb.github.io/vpn-info-list/info/vpn/isps.txt";
             fetch(ispsurl, {
                 headers: {
-                    "Content-Type": 'application/json'
+                    "Content-Type": 'text/plain'
                 }
             })
             .then(response => {
