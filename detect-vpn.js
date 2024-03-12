@@ -12,14 +12,10 @@ export function detectVpnByIsp() {
         .then(data => {
             let isp = data.YourFuckingISP;
             let ispsurl = "https://gachaytb.github.io/vpn-info-list/info/vpn/isps.txt";
-            fetch(ispsurl, {
-                headers: {
-                    "Content-Type": 'text/plain'
-                }
-            })
+            fetch(ispsurl)
             .then(response => {
                 if (response.ok) {
-                    return response.json();
+                    return response.text(); // Change response type to text
                 }
                 throw new Error('this is not ok');
             })
