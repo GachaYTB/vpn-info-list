@@ -10,9 +10,22 @@ export function detectVpnByIsp() {
             throw new Error('this is not ok');
         })
         .then(data => {
-            console.log(data);
             let isp = data.YourFuckingISP;
-            console.log("Your ISP:", isp);
+            let ispsurl = "https://gachaytb.github.io/vpn-info-list/info/vpn/isps.txt";
+            fetch(ispsurl)
+                .then(response => {
+                    if (response.ok) {
+                        return response.json();
+                    }
+                    throw new Error('this is not ok');
+                })
+                .then(data => {
+                    let isps = data.split("\n");
+                    console.log(isps)
+                })
+                .catch(error => {
+                    console.error('problem!!!! :', error);
+                });
         })
         .catch(error => {
             console.error('problem!!!! :', error);
