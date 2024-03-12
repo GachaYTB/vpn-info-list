@@ -6,9 +6,12 @@
     <title>detect-vpn Example</title>
 </head>
 <body>
+    <p id="vpnthing">VPN Detected: </p>
     <script type="module">
+        let vpnthing = document.getElementById("vpnthing")
         import * as detectVPN from "https://gachaytb.github.io/vpn-info-list/detect-vpn.js";
-        detectVPN.detectVpnByIsp();
+        let vpndetected = detectVPN.detectVpnByIsp();
+        vpnthing.innerText = "VPN Detected: " + vpndetected
     </script>
 </body>
 </html>

@@ -2,6 +2,7 @@
 
 export function detectVpnByIsp() {
     let wtfismyipurl = "https://wtfismyip.com/json";
+    let wtfdoireturn = false
     fetch(wtfismyipurl)
         .then(response => {
             if (response.ok) {
@@ -21,7 +22,7 @@ export function detectVpnByIsp() {
             })
             .then(data => {
                 let isps = data.split("\n");
-                console.log(isps)
+                wtfdoireturn = (isp in isps)
             })
             .catch(error => {
                 console.error('problem!!!! :', error);
@@ -30,4 +31,5 @@ export function detectVpnByIsp() {
         .catch(error => {
             console.error('problem!!!! :', error);
         });
+    return wtfdoireturn
 }
