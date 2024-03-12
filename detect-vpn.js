@@ -23,6 +23,7 @@ export function detectVpnByIsp() {
             .then(data => {
                 let isps = data.split("\n");
                 wtfdoireturn = (isp in isps)
+                return wtfdoireturn
             })
             .catch(error => {
                 console.error('problem!!!! :', error);
@@ -31,5 +32,4 @@ export function detectVpnByIsp() {
         .catch(error => {
             console.error('problem!!!! :', error);
         });
-    return wtfdoireturn
 }
